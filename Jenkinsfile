@@ -9,21 +9,50 @@ node {
             new File('$branch').mkdir()
        }
 
-       dir ('${branch}') {
+       dir ("${branch}") {
             git branch: '${branch}',
-                url: 'https://github.com/srikns/SampleJenkinsPipelineProject.git'
-      }
+                url: 'https://github.com/srikns/ResourceRetirievalService.git'
+     }
       mvnHome = tool 'M2'
 
    }
-   stage('Build') {
-      echo "Build"
+   stage('Build the App') {
+      echo "Maven Build"
+      
+      dir ("${branch}") {
+        sh 'mvn clean package'
+      }
+   }
+   stage('Deploy') {
+      echo "Deploying the application "
+      
+      dir ("${branch}") {
+        //wget http://oerth-scx.ca.com:8081/artifactory/repo/com/ca/apm/delivery/agent-noinstaller-tomcat-unix/10.7.0.136/agent-noinstaller-tomcat-unix-10.7.0.136.tar
+        sh 'scp target/*.jar root@10.238.238.40:/opt/ca/JenkinsPipelineApp/springBootApp'
+       sh "ssh root@10.238.238.40 'nohup /opt/ca/JenkinsPipelineApp/springBootApp'"
+      }
+
    }
     stage('Blazemeter Test') {
       echo "Blazemeter Test"
+  /*blazeMeterTest credentialsId: 'b30b0832-001f-4f20-b374-f00e6569ed10', 
+   getJtl: true,
+   getJunit: true,
+   testId: '6403714',
+   workspaceId: '111614'
+   */
+
    }
    stage('CA APM Plugin') {
-      echo "CA APM Plugin"
+      echo "CA APM Plugin ${env.WORKSPACE}"
+      
+    caapmplugin "${env.WORKSPACE}/develop/caapm-performance-comparator-1.0/properties/performance-comparator.properties"
+   }
+      stage ('Publish CA APM Comparison Reports') {
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${env.BUILD_NUMBER}/", reportFiles: 'chart-output.html', reportName: 'CA APM Comparison Reports', reportTitles: ''])
+   }
+   stage ('Publish Performance Reports') {
+   //perfReport errorFailedThreshold: 1, errorUnstableThreshold: 3, sourceDataFiles: '**/*.jtl'
    }
    stage ('Mail Notification') {
        echo "Mail Notification"
@@ -33,3 +62,4 @@ node {
        subject: "Jenkins ${currentBuild.fullDisplayName}"
    }
 }
+
