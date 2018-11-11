@@ -12,10 +12,10 @@ import com.example.springboot.demo.book.Book;
 import com.example.springboot.demo.user.User;
 
 @Controller 
-public class ProjectContoller
+public class InventoryContoller
 {
 
-    @GetMapping("/project/users")
+    @GetMapping("/inventory/users")
     @ResponseBody
     public String getUsers() {
 
@@ -38,7 +38,7 @@ public class ProjectContoller
         return "User retrieval successful";
     }
 
-    @GetMapping("/project/books")
+    @GetMapping("/inventory/books")
     @ResponseBody
     public String getBooks() {
 
@@ -61,6 +61,32 @@ public class ProjectContoller
 
         return "Book retrieval successful";
     }
+    
+    @GetMapping("/inventory/computers")
+    @ResponseBody
+    public String getComnputers() {
+
+        URL url ;
+        try
+        {
+
+            url= new URL("http://localhost:8080/books");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            int responseCode = con.getResponseCode();
+            
+            System.out.println(" response code for book is " + responseCode);
+
+        } catch (Exception e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return "Computers retrieval successful";
+    }
+    
+    
 
 
 }

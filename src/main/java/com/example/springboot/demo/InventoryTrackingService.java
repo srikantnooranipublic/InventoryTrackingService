@@ -15,10 +15,10 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 
 @SpringBootApplication
-public class ResourceRetrievalService {
+public class InventoryTrackingService {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ResourceRetrievalService.class);
+		SpringApplication.run(InventoryTrackingService.class);
 	}
 	
 	/*
