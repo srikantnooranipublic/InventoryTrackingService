@@ -28,7 +28,7 @@ public class InventoryContoller
             
             int responseCode = con.getResponseCode();
             
-            System.out.println(" response code for book is " + responseCode);
+            System.out.println(" response code for users is " + responseCode);
         } catch (Exception e)
         {
             // TODO Auto-generated catch block
@@ -75,7 +75,7 @@ public class InventoryContoller
             con.setRequestMethod("GET");
             int responseCode = con.getResponseCode();
             
-            System.out.println(" response code for book is " + responseCode);
+            System.out.println(" response code for computers ->books is " + responseCode);
 
         } catch (Exception e)
         {
