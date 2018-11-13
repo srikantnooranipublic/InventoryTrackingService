@@ -86,6 +86,30 @@ public class InventoryContoller
         return "Computers retrieval successful";
     }
     
+    @GetMapping("/inventory/mobiles")
+    @ResponseBody
+    public String getMobiles() {
+
+        URL url ;
+        try
+        {
+
+            url= new URL("http://localhost:8080/mobiles");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            int responseCode = con.getResponseCode();
+            
+            System.out.println(" response code for mobile is " + responseCode);
+
+        } catch (Exception e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return "Computers retrieval successful";
+    }
+    
     
 
 

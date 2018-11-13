@@ -16,9 +16,10 @@ public class UserResource
     @GetMapping("/users")
     public List<User> retrieveAllUsers() {
         
-        com.example.springboot.demo.WS.ProjectRestWS ws = new com.example.springboot.demo.WS.ProjectRestWS();
+        // throw new IllegalAccessException( " Do not have Permission to Access Mobile");}
         
-        ws.validateWS();
+        
+        
         
         return service.findAll();
     }
