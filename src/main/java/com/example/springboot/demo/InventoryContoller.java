@@ -15,6 +15,7 @@ import com.example.springboot.demo.user.User;
 public class InventoryContoller
 {
 
+    //Sloweness on users
     @GetMapping("/inventory/users")
     @ResponseBody
     public String getUsers() {
@@ -62,6 +63,7 @@ public class InventoryContoller
         return "Book retrieval successful";
     }
     
+    //computers is dummy - goes to books
     @GetMapping("/inventory/computers")
     @ResponseBody
     public String getComnputers() {
@@ -107,7 +109,31 @@ public class InventoryContoller
             e.printStackTrace();
         }
 
-        return "Computers retrieval successful";
+        return "Mobile retrieval successful";
+    }
+    
+    @GetMapping("/inventory/printers")
+    @ResponseBody
+    public String getPrinters() {
+
+        URL url ;
+        try
+        {
+
+            url= new URL("http://localhost:8080/printers1");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            int responseCode = con.getResponseCode();
+            
+            System.out.println(" response code for printers is " + responseCode);
+
+        } catch (Exception e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return "printers retrieval successful";
     }
     
     
