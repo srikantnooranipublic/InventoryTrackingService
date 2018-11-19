@@ -1,3 +1,5 @@
+properties([pipelineTriggers([githubPush()])])
+
 node {
    def mvnHome
    stage('Checkin') { // for display purposes
