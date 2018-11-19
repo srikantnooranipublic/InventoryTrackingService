@@ -1,1 +1,1 @@
-# InventoryTrackingService - 
+# InventoryTrackingService 
