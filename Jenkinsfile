@@ -1,6 +1,6 @@
 node {
    def mvnHome
-   stage('Checkout') { // for display purposes
+   stage('Checkin') { // for display purposes
 
         echo "branch is ${branch}"
 
@@ -37,9 +37,9 @@ node {
       echo "Blazemeter Test"
       sleep(time:3,unit:"SECONDS")
       blazeMeterTest credentialsId: 'b30b0832-001f-4f20-b374-f00e6569ed10', 
-       getJtl: false,
-       getJunit: false,
-       testId: '6418123',
+       getJtl: true,
+       getJunit: true,
+       testId: '6418755',
        workspaceId: '111614'
    
 
@@ -49,18 +49,15 @@ node {
       
         try {
             def caapm = caapmplugin "${env.WORKSPACE}/develop/caapm-performance-comparator-1.0/properties/performance-comparator.properties"
-            //result = caapm.result
+
             
-            //echo "result is $result"
+            //echo "result is $caapm"
         } catch (ex) {
             
-            echo " marked as FAIL"
-            currentBuild.result="FAIL"
+            echo " CA APM PLugin has marked the build as FAILED"
+            currentBuild.result="FAILURE"
         }
-        
-       // echo " chart folder is ${env.BUILD_NUMBER}/"
-     // publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${env.BUILD_NUMBER}/", reportFiles: 'chart-output.html', reportName: 'CA APM Comparison Reports', reportTitles: ''])
-       
+
    }
       stage ('Publish CA APM Comparison Reports') {
       echo " chart folder is ${env.BUILD_NUMBER}/"
@@ -70,8 +67,8 @@ node {
        echo "Mail Notification"
 
        mail to: "srikns@yahoo.com",
-       body: "Something Went Wrong in the Build",
-       subject: "Jenkins ${currentBuild.fullDisplayName}"
+       body: "Your Project $currentBuild.projectName for Build $currentBuild.number - has a status of $currentBuild.result",
+       subject: "Jenkins Status for ${currentBuild.fullDisplayName}"
    }
 }
 
