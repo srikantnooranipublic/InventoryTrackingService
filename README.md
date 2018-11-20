@@ -1,6 +1,4 @@
 # InventoryTrackingService 
 
-test
-
 
 
