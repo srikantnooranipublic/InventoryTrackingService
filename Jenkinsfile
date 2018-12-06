@@ -23,8 +23,10 @@ node {
       echo "Maven Build"
       
       dir ("${branch}") {
-        sh 'mvn clean package'
+        sh 'mvn clean package deploy'
       }
+      
+      exit
    }
    stage('Deploy') {
       echo "Deploying the application "
