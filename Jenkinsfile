@@ -23,7 +23,7 @@ node {
       echo "Maven Build"
       
       dir ("${branch}") {
-        sh 'mvn clean package deploy'
+        sh 'mvn clean package'
       }
       
       exit
