@@ -1,2 +1,2 @@
-docker stop jenkins
-docker rm jenkins
+docker stop apm-agent
+docker rm apm-agent
