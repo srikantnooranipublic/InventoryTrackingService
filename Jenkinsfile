@@ -38,9 +38,9 @@ node {
 
 	dir ("docker") {
 		echo "its pwd  $PWD"
-		sudo ./clean.sh
-		sudo ./build.sh
-		sudo ./run.sh
+		sh "sudo ./clean.sh"
+		sh "sudo ./build.sh"
+		sh "sudo ./run.sh"
 		
 	}
 	
