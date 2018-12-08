@@ -8,13 +8,15 @@ WORKDIR /opt/ca/springbootApp
 
 ENV APP_HOME=/opt/ca/springbootApp\
     APP_FILES=./APP_FILES\
-    AGENT_FILE=IntroscopeAgentFiles-NoInstaller10.7.0.136tomcat.unix.tar \
+    AGENT_FILE=tomcat-7.0.146.tar\
     APP_JAR=InventoryTrackingService-0.0.1-SNAPSHOT.jar\
     AGENT_PROFILE=IntroscopeAgent.profile\
     CUSTOM_PBD=./${APP_FILES}/UserDaoBE.pbd\
     SPRING_BOOT_PBD=spring-boot.pbd\
     SPRING_BOOT_JAR=spring-boot.jar
     
+
+RUN curl http://truss.ca.com/builds/InternalBuilds/10.7.0-ISCP/build-992308\(10.7.0.146\)/introscope10.7.0.146/IntroscopeAgentFiles-NoInstaller10.7.0.146tomcat.unix.tar -o ${AGENT_FILE} 
 
 COPY ${APP_FILES}/${AGENT_FILE} ${APP_HOME}
 
