@@ -162,7 +162,7 @@ introscope.agent.dns.lookup.max.wait.in.milliseconds=200
 #
 # You must restart the managed application before changes to this property take effect.
 
-agentManager.url.1=10.238.32.21:5001
+agentManager.url.1=172.17.0.1:5001
 
 # The following connection properties enable the Agent to tunnel communication 
 # to the Enterprise Manager over HTTP.
