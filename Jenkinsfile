@@ -33,8 +33,8 @@ node {
       
       dir ("${branch}") {
         //wget http://oerth-scx.ca.com:8081/artifactory/repo/com/ca/apm/delivery/agent-noinstaller-tomcat-unix/10.7.0.136/agent-noinstaller-tomcat-unix-10.7.0.136.tar
-        #sh 'scp target/*.jar root@10.238.238.40:/opt/ca/JenkinsPipelineApp/springBootApp'
-       #sh "ssh root@10.238.238.40 'sh -c  /opt/ca/JenkinsPipelineApp/springBootApp/runProcess > /dev/null  &'"
+        //sh 'scp target/*.jar root@10.238.238.40:/opt/ca/JenkinsPipelineApp/springBootApp'
+       //#sh "ssh root@10.238.238.40 'sh -c  /opt/ca/JenkinsPipelineApp/springBootApp/runProcess > /dev/null  &'"
 
 	dir ("docker") {
 		echo "its pwd  $PWD"
