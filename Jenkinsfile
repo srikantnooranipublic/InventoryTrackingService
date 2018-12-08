@@ -26,7 +26,6 @@ node {
         sh 'mvn clean package'
       }
       
-      exit
    }
    stage('Deploy') {
       echo "Deploying the application "
