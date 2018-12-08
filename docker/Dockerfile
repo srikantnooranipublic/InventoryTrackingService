@@ -32,4 +32,4 @@ RUN   chmod +x /entrypoint.sh
 
 expose 8999
 
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
