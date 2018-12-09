@@ -36,16 +36,15 @@ node {
         //sh 'scp target/*.jar root@10.238.238.40:/opt/ca/JenkinsPipelineApp/springBootApp'
        //#sh "ssh root@10.238.238.40 'sh -c  /opt/ca/JenkinsPipelineApp/springBootApp/runProcess > /dev/null  &'"
 
-	dir ("docker") {
-		echo "its pwd  $PWD"
-		sudo ./clean.sh
-		sudo ./build.sh
-		sudo ./run.sh
-		
-	}
-	
+        dir ("docker") {
+          echo "its pwd  $PWD"
+          sudo ./clean.sh
+          sudo ./build.sh
+          sudo ./run.sh
+    
+        }
+  
       }
 
    }
 }
-
