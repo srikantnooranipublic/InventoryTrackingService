@@ -11,7 +11,7 @@ chmod 755 run.sh
 
 echo "Docker App cleanup"
 
-./cleanup.sh
+./clean.sh
 
 echo "Docker App build image"
 
