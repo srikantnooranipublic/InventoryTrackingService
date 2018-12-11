@@ -81,12 +81,13 @@ node {
       echo " chart folder is ${env.BUILD_NUMBER}/"
      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${env.BUILD_NUMBER}/", reportFiles: 'chart-output.html', reportName: 'CA APM Comparison Reports', reportTitles: ''])
    }
-   stage ('Mail Notification') {
+/*   stage ('Mail Notification') {
        echo "Mail Notification"
 
        mail to: "srikns@yahoo.com",
        body: "Your Project $currentBuild.projectName for Build $currentBuild.number - has a status of $currentBuild.result",
        subject: "Jenkins Status for ${currentBuild.fullDisplayName}"
    }
+*/
 }
 
