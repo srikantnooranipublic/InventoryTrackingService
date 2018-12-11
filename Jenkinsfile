@@ -79,7 +79,7 @@ node {
    }
       stage ('Publish CA APM Comparison Reports') {
       echo " chart folder is ${env.BUILD_NUMBER}/"
-     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${env.BUILD_NUMBER}/", reportFiles: 'chart-output.html', reportName: 'CA APM Comparison Reports', reportTitles: ''])
+     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: "${env.BUILD_NUMBER}/", reportFiles: 'htmlpublisher-wrapper.html', reportName: 'CA APM Comparison Reports', reportTitles: ''])
    }
 /*   stage ('Mail Notification') {
        echo "Mail Notification"
