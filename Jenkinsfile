@@ -41,9 +41,9 @@ node {
     
       }
         
-      dir ("../../docker/jmeter") {
-         echo "Deploying Jmeter Service Container"
-         sh "sudo ./dockerJmeterStatus.sh"
+      dir ("../jmeter") {
+         echo "Deploying Jmeter Service Container $PWD"
+         sh "sudo ./dockerJmeterStartup.sh"
     
        }
   
