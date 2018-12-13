@@ -50,7 +50,7 @@ node {
      }
 
    }
-/*
+/***
    stage('Blazemeter Test') {
       echo "Blazemeter Test"
       sleep(time:3,unit:"SECONDS")
@@ -63,7 +63,7 @@ node {
    
 
    }
-*/
+***/
    stage('CA APM Plugin') {
       echo "CA APM Plugin ${env.WORKSPACE}"
       
