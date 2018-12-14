@@ -50,20 +50,18 @@ node {
      }
 
    }
-/***
    stage('Blazemeter Test') {
       echo "Blazemeter Test"
       sleep(time:3,unit:"SECONDS")
       //blazeMeterTest credentialsId: 'b30b0832-001f-4f20-b374-f00e6569ed10', 
       blazeMeterTest credentialsId: '7790635e-f017-4f58-a3f1-8b3c7808f67d', 
-      getJtl: true,
-       getJunit: true,
-       testId: '6418755',
+      getJtl: false,
+       getJunit: false,
+       testId: '6414458',
        workspaceId: '111614'
    
 
    }
-***/
    stage('CA APM Plugin') {
       echo "CA APM Plugin ${env.WORKSPACE}"
       
