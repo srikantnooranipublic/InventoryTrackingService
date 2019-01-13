@@ -2,14 +2,21 @@
   
 echo "Starting Docker JMETER Scripts"
 
-echo "Docker Jmeter cleanup"
+IS_JMETER_UP=`docker ps |grep jmeter`
 
-./cleanup.sh
+if [ x"$IS_JMETER_UP" == "x" ]
+then 
+        echo "APM Agent Not running"
 
-echo "Docker Jmeter build image"
+	echo "Docker Jmeter cleanup"
 
-./build.sh
-
-echo "Docker Jmeter run app "
-
-./run.sh
+	./cleanup.sh
+	
+	echo "Docker Jmeter build image"
+	
+	./build.sh
+	
+	echo "Docker Jmeter run app "
+	
+	./run.sh
+fi

@@ -9,14 +9,21 @@ sed 's/RUNTIME_FOLDER/'$PWD_NEW'/g' run.sh > run.sh.changed
 chmod 755 run.sh
 
 
-echo "Docker App cleanup"
+IS_APM_AGENT_UP=`docker ps |grep apm-agent`
 
-./cleanup.sh
+if [ x"$IS_APM_AGENT_UP" == "x" ] 
+then 
+   	echo "APM Agent Not running"
 
-echo "Docker App build image"
+	echo "Docker App cleanup"
 
-./build.sh
+	./cleanup.sh
 
-echo "Docker App run app "
+	echo "Docker App build image"
 
-./run.sh
+	./build.sh
+
+	echo "Docker App run app "
+
+	./run.sh
+fi

@@ -1,4 +1,4 @@
-properties([pipelineTriggers([githubPush()])])
+#properties([pipelineTriggers([githubPush()])])
 
 node {
    def mvnHome
@@ -13,8 +13,8 @@ node {
 
        dir ("${branch}") {
           git branch: '${branch}',
-             //url: 'https://github.com/srikns/InventoryTrackingService.git'
-             url: 'git@github.com:srikns/InventoryTrackingService.git'
+             url: 'https://github.com/srikns/InventoryTrackingService.git'
+             //url: 'git@github.com:srikns/InventoryTrackingService.git'
      }
       mvnHome = tool 'M2'
 
