@@ -13,7 +13,7 @@ node {
 
        dir ("${branch}") {
           git branch: '${branch}',
-             url: 'https://github.com/srikns/InventoryTrackingService.git'
+             url: 'git@github.com:srikantnooranipublic/InventoryTrackingService.git'
              //url: 'git@github.com:srikns/InventoryTrackingService.git'
      }
       mvnHome = tool 'M2'
