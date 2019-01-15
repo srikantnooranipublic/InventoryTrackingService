@@ -8,6 +8,8 @@ sed 's/RUNTIME_FOLDER/'$PWD_NEW'/g' run.sh > run.sh.changed
 
 chmod 755 run.sh
 
+cp -f ../../target/InventoryTrackingService-1.1.1-SNAPSHOT.jar APP_FILES/InventoryTrackingService.jar
+
 
 IS_APM_AGENT_UP=`docker ps |grep apm-agent`
 
