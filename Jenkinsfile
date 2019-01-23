@@ -2,7 +2,7 @@
 
 node {
    def mvnHome
-   stage('Checkin') { // for display purposes
+   stage('Checkout') { // for display purposes
 
         echo "branch is ${branch}"
 
